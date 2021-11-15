@@ -86,7 +86,7 @@ Estimated Total Size (MB): 8.59
 
 ## Result
 
-The overall accuracy was 67% and accuracy of predicted classes is as below - 
+Because of time contraints the number of epochs were restricted to only 8. The overall accuracy was 67% and accuracy of predicted classes is as below - 
 
 Accuracy of plane : 77 %
 
@@ -107,3 +107,8 @@ Accuracy of horse : 75 %
 Accuracy of  ship : 60 %
 
 Accuracy of truck : 66 %
+
+
+## Inference
+
+Given the improvement in accuracy for only 8 epochs, if the model is trained further the accuracy will improve.
