@@ -19,21 +19,69 @@
 
 ## Approach
 
-The network class was modified to accept a parameter that would decide the type of normalization to be used.
-Parameter values as below:
-B - For BN + L1 Regularization
-L - For Layer Normalization
-G - For group Normalization (Group of 4 per layer has been used for this assignment)
+There are two main parts to this excercise.
 
-The Network class has been saved in a different file named as model.py
-A Notebook file was created to create 3 versions of the model.
+Part -1 (Generating Image set with Albumentation libraries)
 
-For L1 regularization the Train function has been modified to use mse loss function. The predicted tensor output from the model has been reshaped(Used argmax) to match with the target tensor shape. This was needed to make it compatible with mse loss function. The train function has also been modified to return a list of train loss and train accuracy.
+Part -2 (Developing and updating the network skeleton)
 
-The Test fucntion has been modified to return a list of test loss and test accuracy. This was needed to plot the graph for all 3 models.
+### Part -1
+The Albumantation library was used to generate additinal images on top of training data set by using following modofications to existing images- 
+- Horizontal Flip
+- ShiftScale Rotate
+- Coarse Dropout
+- Grayscale
 
+Because we needed to Grayscale the use of existing coloured dataset was not needed. Hence, at first the whole training dataset was converted to grayscale and then these gray-scaled images were modified using - Horizontal Flip, ShiftScale Rotate and Coarse Dropout.
+Thus, for each image (Gray scaled image) we had 3 additional versions. However, there being 50k training images adding 3 images to every image resulted in 200k training images. Because of restrictions in hardware this was selectively done i.e. few images were horizontally flipped, few were shift rotated and the rest were modified using coarse Drop out.
+The total training image set had 50K gray-scaled images +~ 30K modified/augmented images Total being around 80K images. The training images were then normalized.
 
-## Model Summary
+On similar lines the test images were gray-scaled and normalized.
 
-### Version -1 (Model with BN + L1)
+### Part -2
+The network class was created to include the following.
+1. Depthwise separable convolution layer.
+2. Dialated or Altrous convolution.
+3. Normal convloution
+4. GAP
+
+The model was trained 
+Model Summary as below:
 <pre>
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 3, 32, 32]              27
+       BatchNorm2d-2            [-1, 3, 32, 32]               6
+              ReLU-3            [-1, 3, 32, 32]               0
+            Conv2d-4           [-1, 32, 32, 32]              96
+       BatchNorm2d-5           [-1, 32, 32, 32]              64
+           Dropout-6           [-1, 32, 32, 32]               0
+              ReLU-7           [-1, 32, 32, 32]               0
+            Conv2d-8           [-1, 32, 32, 32]             288
+       BatchNorm2d-9           [-1, 32, 32, 32]              64
+             ReLU-10           [-1, 32, 32, 32]               0
+           Conv2d-11           [-1, 64, 32, 32]           2,048
+      BatchNorm2d-12           [-1, 64, 32, 32]             128
+             ReLU-13           [-1, 64, 32, 32]               0
+  ConvTranspose2d-14          [-1, 128, 40, 40]          73,728
+      BatchNorm2d-15          [-1, 128, 40, 40]             256
+             ReLU-16          [-1, 128, 40, 40]               0
+           Conv2d-17           [-1, 10, 32, 32]          11,520
+      BatchNorm2d-18           [-1, 10, 32, 32]              20
+             ReLU-19           [-1, 10, 32, 32]               0
+        AvgPool2d-20             [-1, 10, 1, 1]               0
+================================================================
+Total params: 88,245
+Trainable params: 88,245
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.01
+Forward/backward pass size (MB): 8.24
+Params size (MB): 0.34
+Estimated Total Size (MB): 8.59
+----------------------------------------------------------------
+</pre>
+
+
+
