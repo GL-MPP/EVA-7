@@ -111,4 +111,4 @@ Accuracy of truck : 66 %
 
 ## Inference
 
-Given the improvement in accuracy for only 8 epochs, if the model is trained further the accuracy will improve.
+Given the improvement in accuracy for only 8 epochs, if the model is trained further the accuracy should improve.
