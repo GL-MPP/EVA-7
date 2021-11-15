@@ -84,4 +84,26 @@ Estimated Total Size (MB): 8.59
 </pre>
 
 
+## Result
 
+The overall accuracy was 67% and accuracy of predicted classes is as below - 
+
+Accuracy of plane : 77 %
+
+Accuracy of   car : 82 %
+
+Accuracy of  bird : 51 %
+
+Accuracy of   cat : 55 %
+
+Accuracy of  deer : 67 %
+
+Accuracy of   dog : 72 %
+
+Accuracy of  frog : 70 %
+
+Accuracy of horse : 75 %
+
+Accuracy of  ship : 60 %
+
+Accuracy of truck : 66 %
