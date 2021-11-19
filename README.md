@@ -1,2 +1,2 @@
 # EVA-7
-Assignment Session 2.5
+This is the repo for all assignments of EVA-7
