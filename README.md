@@ -1,2 +1,2 @@
-# EVA-7 Assignment Repository
+# EVA-7 Assignments
 This is the repo for all assignments of EVA-7
