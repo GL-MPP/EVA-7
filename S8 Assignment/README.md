@@ -38,13 +38,13 @@ Part -2 (Updating the network skeleton and training)
 Part -3 (Generating 10 misclassified images and its corresponding gradcam images)
 
 ### Part -1
-The Albumentation library was used to generate additinal images on top of training data set by using following modifications on the train dataset- 
+The Albumentation library was used to generate additional images on top of training data set by using following modifications on the train dataset- 
 - The dataset was first imported with only transformation being converting to tensor
 - The mean and std was then derived separately for train and test dataset
 - The dataset was reloaded with Normalized values.
 - Using albumentation libraries RandomCrop and Cutout rules were applied. For cutout the mean calculation was appropriately done to sync with normalized data. This was needed to fill the cutout section with mean value of pixels.
 
-The test data set was only converted to tensor and normalized using meand and std.
+The test data set was only converted to tensor and normalized using mean and std.
 
 ### Part -2
 The existing Resnet network class was updated to include the following.
