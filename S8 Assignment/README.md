@@ -129,6 +129,7 @@ Estimated Total Size (MB): 54.39
 
 ![](/Images/Gradcam_img.jpg)
 
+
 ## Result
 
 Because of time contraints the number of epochs were restricted to only 8. The overall accuracy was 67% and accuracy of predicted classes is as below - 
