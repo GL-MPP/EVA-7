@@ -125,7 +125,9 @@ Estimated Total Size (MB): 54.39
 
 10 misclassified images were generated and for each image gradcam images were generated for the misclassified class the model predicted.
 
+![](/Images/Missclassified_img.jpg)
 
+![](/Images/Gradcam_img.jpg)
 
 ## Result
 
