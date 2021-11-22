@@ -123,38 +123,19 @@ Estimated Total Size (MB): 54.39
 
 ### Part -3
 
-10 misclassified images were generated and for each image gradcam images were generated for the misclassified class the model predicted.
+10 misclassified images were generated and for each misclassified image a gradcam image was generated for the misclassified class the model predicted.
 
 ![](/Images/Missclassified_img.jpg)
 
+Gradcam images - 
 ![](/Images/Gradcam_img.jpg)
 
 
 ## Result
 
-Because of time contraints the number of epochs were restricted to only 8. The overall accuracy was 67% and accuracy of predicted classes is as below - 
+The model was trained for 20 epochs -
+Highest Training Accuracy achieved - 92.43%
+Highest Test Accuracy achieved - 50.23 at epoch 14.
 
-Accuracy of plane : 77 %
+![](/Images/Train_test_graph.png)
 
-Accuracy of   car : 82 %
-
-Accuracy of  bird : 51 %
-
-Accuracy of   cat : 55 %
-
-Accuracy of  deer : 67 %
-
-Accuracy of   dog : 72 %
-
-Accuracy of  frog : 70 %
-
-Accuracy of horse : 75 %
-
-Accuracy of  ship : 60 %
-
-Accuracy of truck : 66 %
-
-
-## Inference
-
-Given the improvement in accuracy for only 8 epochs, if the model is trained further the accuracy should improve.
