@@ -128,6 +128,7 @@ Estimated Total Size (MB): 54.39
 ![](/Images/Missclassified_img.jpg)
 
 Gradcam images - 
+
 ![](/Images/Gradcam_img.jpg)
 
 
@@ -136,6 +137,7 @@ Gradcam images -
 The model was trained for 20 epochs -
 Highest Training Accuracy achieved - 92.43%
 Highest Test Accuracy achieved - 50.23 at epoch 14.
+
 
 ![](/Images/Train_test_graph.png)
 
