@@ -20,13 +20,16 @@ Create a structured repository as below -
 
 5. The colab notebook will only call these files/utilities and nothing is coded in the colab notebook.
 6. Train resnet18 for 20 epochs on the CIFAR10 dataset
-7. To show loss curves for test and train datasets
-8. To show a gallery of 10 misclassified images
-9. To show gradcam output on 10 misclassified images. Apply GradCAM on a channel that is more than 7x7.
+7. To apply following tranformations while training - 
+- RandomCrop(32, padding=4)
+- CutOut(16x16)
+8. To show loss curves for test and train datasets
+9. To show a gallery of 10 misclassified images
+10. To show gradcam output on 10 misclassified images. Apply GradCAM on a channel that is more than 7x7.
 
 ## Approach
 
-There are two main parts to this excercise.
+There are 3 main parts to this excercise.
 
 Part -1 (Generating Image set with Albumentation libraries)
 
