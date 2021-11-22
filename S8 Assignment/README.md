@@ -1,21 +1,28 @@
-# Session - 7 Assignment
+# Session - 8 Assignment
 
 ## Requirement
 
-1. To create a network architecture  C1->C2->C3->C4->0utput (Dilated kernels to be used where appropriate)
-2. Total RF must be more than 52
-3. Two of the layers must use Depthwise Separable Convolution
-4. One of the layers must use Dilated Convolution
-5. Mandatory use of GAP
-6. Use of albumentation library as below:
-- horizontal flip
-- shiftScaleRotate
-- coarseDropout (max_holes = 1, max_height=16px, max_width=1, min_holes = 1, min_height=16px, min_width=16px, 
-                     fill_value=(mean of your dataset), mask_fill_value = None)  
-- grayscale
+Create a structured repository as below -
+1. Models folder - This folder will contain all future models. 
+2. Copy resnet.py into this folder, this file should only have ResNet 18/34 models. Delete Bottleneck Class
+3. Create a main.py file to contain the following funtionalities
+- training and test loops
+- data split between test and train
+- epochs
+- batch size
+- optimizer initialization
 
-7. Target 87% accuracy with less than 100k total parameters (There is no limitation in use of number of epochs)
+4. Create utils.py file and add utilities like:
+- image transforms
+- gradcam gereation rules
+- misclassification code
+- tensorboard related stuff
 
+5. The colab notebook will only call these files/utilities and nothing is coded in the colab notebook.
+6. Train resnet18 for 20 epochs on the CIFAR10 dataset
+7. To show loss curves for test and train datasets
+8. To show a gallery of 10 misclassified images
+9. To show gradcam output on 10 misclassified images. Apply GradCAM on a channel that is more than 7x7.
 
 ## Approach
 
