@@ -27,7 +27,7 @@ Create a custom ResNet architecture for CIFAR10 that has the following architect
 
 ## Approach
 
-There are 3 main parts to this excercise.
+There are 3 main parts to this exercise.
 
 Part -1 (Creating Image transformation rules -> RandomCrop 32, 32 (after padding of 4) >> FlipLR >> Followed by CutOut(8, 8))
 
@@ -42,12 +42,12 @@ torchvison.transforms was used for:
 - Random crop 32x32 with padding of 4
 - Horizontal flip
 
-Albumentation libraries was used for Cutout and Normalizing the images using Mean, Std and Max. As the image pixel range changes after being converted to Tensor (New pixel values ranges from 0-1) the new image mean,std and max were passed to Albumentation library to generate Normalized images. 
+Albumentation libraries was used for Cutout and Normalizing the images using Mean, Std and Max. As the image pixel range changes after being converted to Tensor (New pixel values ranges from 0-1), the new image mean, std and max were passed to Albumentation library to generate Normalized images. 
 
-The test data set was only converted to tensor and normalized using mean, std and max.
+The test data set was only converted to tensor and normalized using mean, Std and Max.
 
 ### Part -2
-A custom resnet model was developed. Grouping rules were set in palce which reduced the number of parameters to 757K.
+A custom resnet model was developed. Grouping rules were set in place which reduced the number of parameters to 757K.
 Model Summary as below:
 <pre>
 ----------------------------------------------------------------
@@ -139,3 +139,7 @@ The model was trained for 24 epochs -
 
 
 ![](/Images/S9_Train_Test_Acc.png)
+
+
+
+
