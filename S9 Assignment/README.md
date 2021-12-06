@@ -122,14 +122,19 @@ Estimated Total Size (MB): 14.23
 
 ### Part -3
 
-The model was initialized with StepLR step size = 1 and gamma = 1.069. Optimizer used was Adam.
+The model was run in two modes:
+1. Train mode = N
+2. Train mode = Y
+
+- In Train mode = N the model was initialized with StepLR step size = 1 and gamma = 1.069. Optimizer used was Adam.
 The model was trained for one epoch with the above LR scheduler to derive the Max LR when the Loss is minimum. 
 The graph gerenated LR vs Training Loss is as bleow-
 
 ![](/Images/LRVsLoss.png)
 
+- In Train Mode = Y
 Using several trial Train Runs the optimum Max LR was found to be 0.09. The model was then trained using OneCycleLR scheduler for each epoch
-with Max LR being at 5th epoch without annihilation.
+with Max LR being at 5th epoch without annihilation. The training was limitied to 24 epochs.
 
 ## Result
 
