@@ -3,6 +3,7 @@
 ## Requirement
 
 Download this  TINY IMAGENET dataset. 
+
 Train ResNet18 on this dataset (70/30 split) for 50 Epochs. Target 50%+ Validation Accuracy. 
 
 ## Approach
