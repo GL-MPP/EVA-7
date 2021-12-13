@@ -23,16 +23,19 @@ The data set was loaded as a dataframe in a notebook and the bonding box size (H
 
 ![](/Images/BBOX.png)
 
-KMeans clustering algorythm was run on X,Y coordiantes to find the optimum number of clusters
+KMeans clustering algorithm was run on X,Y coordinates to find the optimum number of clusters
 
 ![](/Images/ELBOW.png)
 
 Then, for cluster values = 3,4,5,6 the centroids were calculated and anchor boxes were generated.
-
+### For K=3
 ![](/Images/Kmeans_3.png)
 
+### For K=4
 ![](/Images/Kmeans_4.png)
 
+### For K=5
 ![](/Images/Kmeans_5.png)
 
+### For K=6
 ![](/Images/Kmeans_6.png)
