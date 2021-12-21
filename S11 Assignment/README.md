@@ -32,12 +32,12 @@ Part -2 Updating config file and placing the annotated images and labels in appr
 
 Part -3 Training the model
 
-Part -4 Displaying the newly added images annoated images by Yolo.
+Part -4 Displaying the newly generated annoated images by Yolo.
 
-Part -5 Downlaoding a short video, breaking the video into frames of images. Annotating the images through yolo and rebuilding the video using annotated images.
+Part -5 Downloading a short video, breaking the video into frames of images. Annotating the images through yolo and rebuilding the video using annotated images.
 
 ### Part -1
-Images were downloaded 25 images per class(for 4 classes). The images were then annotated manually using the annotaion tool. The images and generated labels were placed in appropriate folders.
+Images were downloaded 25 images per class(for 4 classes). The images were then annotated manually using the annotation tool. The images and generated labels were placed in appropriate folders.
 
 ### Part -2
 The config file was updated to make number of classes = 4. There were extra image information in train.txt which had to be removed to make the structure ready for training.
@@ -58,34 +58,34 @@ The model was trained for 20 epochs -
 The yolo annotated images generated are as below -
 
 
-![](/Images/S11 Yolo/Boots1.jpg)
+![](/Images/S11_Yolo/Boots1.jpg)
 
-![](/Images/S11 Yolo/Boots2.jpg)
+![](/Images/S11_Yolo/Boots2.jpg)
 
-![](/Images/S11 Yolo/Boots3.jpg)
+![](/Images/S11_Yolo/Boots3.jpg)
 
-![](/Images/S11 Yolo/Boots4.jpg)
+![](/Images/S11_Yolo/Boots4.jpg)
 
-![](/Images/S11 Yolo/HHat1.jpg)
+![](/Images/S11_Yolo/HHat1.jpg)
 
-![](/Images/S11 Yolo/HHat2.jpg)
+![](/Images/S11_Yolo/HHat2.jpg)
 
-![](/Images/S11 Yolo/HHat3.jpg)
+![](/Images/S11_Yolo/HHat3.jpg)
 
-![](/Images/S11 Yolo/HHat4.jpg)
+![](/Images/S11_Yolo/HHat4.jpg)
 
-![](/Images/S11 Yolo/Mask1.jpg)
+![](/Images/S11_Yolo/Mask1.jpg)
 
-![](/Images/S11 Yolo/Mask2.jpg)
+![](/Images/S11_Yolo/Mask2.jpg)
 
-![](/Images/S11 Yolo/Mask3.jpg)
+![](/Images/S11_Yolo/Mask3.jpg)
 
-![](/Images/S11 Yolo/Mask4.jpg)
+![](/Images/S11_Yolo/Mask4.jpg)
 
-![](/Images/S11 Yolo/Vest1.jpg)
+![](/Images/S11_Yolo/Vest1.jpg)
 
-![](/Images/S11 Yolo/Vest2.jpg)
+![](/Images/S11_Yolo/Vest2.jpg)
 
-![](/Images/S11 Yolo/Vest3.jpg)
+![](/Images/S11_Yolo/Vest3.jpg)
 
-![](/Images/S11 Yolo/Vest4.jpg)
+![](/Images/S11_Yolo/Vest4.jpg)
