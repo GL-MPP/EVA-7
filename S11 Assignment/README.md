@@ -2,146 +2,90 @@
 
 ## Requirement
 
-OpenCV Yolo:  SOURCE - https://pysource.com/2019/06/27/yolo-object-detection-using-opencv-with-python/
-Run this above code on your laptop or Colab. 
-Take an image of yourself, holding another object which is there in COCO data set (search for COCO classes to learn). 
-Run this image through the code above. 
-Upload the link to GitHub implementation of this
-Upload the annotated image by YOLO. 
-Training Custom Dataset on Colab for YoloV3
-Refer to this Colab File:  LINK
-Refer to this GitHub  Repo
-Download this dataset (Links to an external site.). This was annotated by EVA5 Students. Collect and add 25 images for the following 4 classes into the dataset shared:
+OpenCV Yolo:  [SOURCE](https://pysource.com/2019/06/27/yolo-object-detection-using-opencv-with-python/)
+
+- Run this above code on your laptop or Colab.
+- Take an image of self, holding another object which is there in COCO data set
+- Run this image through the code above. 
+- Upload/display the annotated image by YOLO. 
+
+Train Custom Dataset on Colab for YoloV3
+Refer to this Colab File:  [LINK](https://colab.research.google.com/drive/1LbKkQf4hbIuiUHunLlvY-cc0d_sNcAgS#scrollTo=oJWPCDSv0gw3)
+
+Refer to this GitHub  [Repo](https://github.com/theschoolofai/YoloV3)
+Download this dataset (Links to an external site.). 
+
+- Collect and add 25 images for the following 4 classes into the dataset shared:
 class names are in custom.names file. 
-you must follow exact rules to make sure that you can train the model. Steps are explained in the README.md file on github repo link above.
-Once you add your additional 100 images, train the model
+
+- Steps are explained in the README.md file on github repo link should be followed.
+
+- Once additional 100 images are added, train the model
 
 ## Approach
 
-There are 3 main parts to this exercise.
+There are 5 parts to this exercise.
 
-Part -1 Preparing dataset
+Part -1 Preparing and manually annotating images to prepare corresponding image labels.
 
-Part -2 Updating Resnet18 model to fit the new dataset and classes
+Part -2 Updating config file and placing the annotated images and labels in appropriate folders
 
-Part -3 (Finding the optimum Max LR and passing it as a parameter to One Cycle policy Scheduler to obtain maximum model accuracy)
+Part -3 Training the model
+
+Part -4 Displaying the newly added images annoated images by Yolo.
+
+Part -5 Downlaoding a short video, breaking the video into frames of images. Annotating the images through yolo and rebuilding the video using annotated images.
 
 ### Part -1
-For ImageFolder to work, images in training and validation folders must be arranged in the following structure:
-==> train/cat/img1.png
-
-==> train/cat/img2.png
-
-==> train/cat/img3.png
-
-==> train/cat/img4.png
-
-==> val/cat/img_1.png
-
-==> val/cat/img_2.png
-
-==> val/cat/img_3.png
-
-
-It is found that the training folder meets the structure needed for ImageLoader but the validation folder does not. The images in the validation folder are all saved within a single folder, so we need to reorganize them into sub-folders based on their labels.
-The validation folder contains a val_annotations.txt file which comprises six tab-separated columns: filename, class label, and details of the bounding box (x,y coordinates, height, width).
-
-![](/Images/TinyImagevaldef.png)
-
-We extract the first two columns so that we can save the pairs of filename and corresponding class labels in a dictionary. After that, we carry out the folder path reorganization.
-
-The images were normalized to mean values of (0.485, 0.456, 0.406) and standard deviation values of (0.229, 0.224, 0.225).
-On top of that, transformation rules were added (e.g. center crops, random flips, etc.) to augment the image dataset and improve model performance.
+Images were downloaded 25 images per class(for 4 classes). The images were then annotated manually using the annotaion tool. The images and generated labels were placed in appropriate folders.
 
 ### Part -2
-Resnet18 model was updated to add number of classes to 200.
-Model Summary as below:
-<pre>
-----------------------------------------------------------------
-        Layer (type)               Output Shape         Param #
-================================================================
-            Conv2d-1         [-1, 64, 224, 224]           1,728
-       BatchNorm2d-2         [-1, 64, 224, 224]             128
-            Conv2d-3         [-1, 64, 224, 224]          36,864
-       BatchNorm2d-4         [-1, 64, 224, 224]             128
-            Conv2d-5         [-1, 64, 224, 224]          36,864
-       BatchNorm2d-6         [-1, 64, 224, 224]             128
-        BasicBlock-7         [-1, 64, 224, 224]               0
-            Conv2d-8         [-1, 64, 224, 224]          36,864
-       BatchNorm2d-9         [-1, 64, 224, 224]             128
-           Conv2d-10         [-1, 64, 224, 224]          36,864
-      BatchNorm2d-11         [-1, 64, 224, 224]             128
-       BasicBlock-12         [-1, 64, 224, 224]               0
-           Conv2d-13        [-1, 128, 112, 112]          73,728
-      BatchNorm2d-14        [-1, 128, 112, 112]             256
-           Conv2d-15        [-1, 128, 112, 112]         147,456
-      BatchNorm2d-16        [-1, 128, 112, 112]             256
-           Conv2d-17        [-1, 128, 112, 112]           8,192
-      BatchNorm2d-18        [-1, 128, 112, 112]             256
-       BasicBlock-19        [-1, 128, 112, 112]               0
-           Conv2d-20        [-1, 128, 112, 112]         147,456
-      BatchNorm2d-21        [-1, 128, 112, 112]             256
-           Conv2d-22        [-1, 128, 112, 112]         147,456
-      BatchNorm2d-23        [-1, 128, 112, 112]             256
-       BasicBlock-24        [-1, 128, 112, 112]               0
-           Conv2d-25          [-1, 256, 56, 56]         294,912
-      BatchNorm2d-26          [-1, 256, 56, 56]             512
-           Conv2d-27          [-1, 256, 56, 56]         589,824
-      BatchNorm2d-28          [-1, 256, 56, 56]             512
-           Conv2d-29          [-1, 256, 56, 56]          32,768
-      BatchNorm2d-30          [-1, 256, 56, 56]             512
-       BasicBlock-31          [-1, 256, 56, 56]               0
-           Conv2d-32          [-1, 256, 56, 56]         589,824
-      BatchNorm2d-33          [-1, 256, 56, 56]             512
-           Conv2d-34          [-1, 256, 56, 56]         589,824
-      BatchNorm2d-35          [-1, 256, 56, 56]             512
-       BasicBlock-36          [-1, 256, 56, 56]               0
-           Conv2d-37          [-1, 512, 28, 28]       1,179,648
-      BatchNorm2d-38          [-1, 512, 28, 28]           1,024
-           Conv2d-39          [-1, 512, 28, 28]       2,359,296
-      BatchNorm2d-40          [-1, 512, 28, 28]           1,024
-           Conv2d-41          [-1, 512, 28, 28]         131,072
-      BatchNorm2d-42          [-1, 512, 28, 28]           1,024
-       BasicBlock-43          [-1, 512, 28, 28]               0
-           Conv2d-44          [-1, 512, 28, 28]       2,359,296
-      BatchNorm2d-45          [-1, 512, 28, 28]           1,024
-           Conv2d-46          [-1, 512, 28, 28]       2,359,296
-      BatchNorm2d-47          [-1, 512, 28, 28]           1,024
-       BasicBlock-48          [-1, 512, 28, 28]               0
-           Linear-49                  [-1, 200]         102,600
-================================================================
-Total params: 11,271,432
-Trainable params: 11,271,432
-Non-trainable params: 0
-----------------------------------------------------------------
-Input size (MB): 0.57
-Forward/backward pass size (MB): 551.25
-Params size (MB): 43.00
-Estimated Total Size (MB): 594.82
-----------------------------------------------------------------
-</pre>
+The config file was updated to make number of classes = 4. There were extra image information in train.txt which had to be removed to make the structure ready for training.
 
 ### Part -3
+The model was trained on existing and newly added annotated images.
 
-The model was run in two modes:
-1. Train mode = N
-2. Train mode = Y
+### Part -4
+The yolo annotated images were generated displayed below.
 
-- In Train mode = N the model was initialized with StepLR step size = 1 and gamma = 1.069. Optimizer used was Adam.
-The model was trained for one epoch with the above LR scheduler to derive the Max LR when the Loss is minimum. 
-The graph gerenated LR vs Training Loss is as bleow-
+### Part -5
+A short video was downloaded from youtube. The video was broken into image fragments which was fed to yolo for annotation. The video was reconstructed using yolo annotated images.
 
-![](/Images/S10LRVsLoss.png)
-
-- In Train Mode = Y
-Using several trial Train Runs the optimum Max LR was found to be 0.00203. The model was then trained using OneCycleLR scheduler for each epoch
-with Max LR being at 4th epoch without annihilation. The training was limitied to 11 epochs because of time limitations.
 
 ## Result
 
-The model was trained for 11 epochs -
-- Highest Training Accuracy achieved - 57.25 at 9th epoch
-- Highest Test Accuracy achieved - 49.22 at 11th epoch.
+The model was trained for 20 epochs -
+The yolo annotated images generated are as below -
 
 
-![](/Images/S10_Train_Test_Acc.png)
+![](/Images/S11 Yolo/Boots1.jpg)
+
+![](/Images/S11 Yolo/Boots2.jpg)
+
+![](/Images/S11 Yolo/Boots3.jpg)
+
+![](/Images/S11 Yolo/Boots4.jpg)
+
+![](/Images/S11 Yolo/HHat1.jpg)
+
+![](/Images/S11 Yolo/HHat2.jpg)
+
+![](/Images/S11 Yolo/HHat3.jpg)
+
+![](/Images/S11 Yolo/HHat4.jpg)
+
+![](/Images/S11 Yolo/Mask1.jpg)
+
+![](/Images/S11 Yolo/Mask2.jpg)
+
+![](/Images/S11 Yolo/Mask3.jpg)
+
+![](/Images/S11 Yolo/Mask4.jpg)
+
+![](/Images/S11 Yolo/Vest1.jpg)
+
+![](/Images/S11 Yolo/Vest2.jpg)
+
+![](/Images/S11 Yolo/Vest3.jpg)
+
+![](/Images/S11 Yolo/Vest4.jpg)
