@@ -42,7 +42,9 @@ The model was trained for 50 epochs.
 ## Result
 
 The model was trained for 50 epochs -
-Highest train accuracy achievd is 64%.
+
+Highest train accuracy achieved is 64%.
+
 Highest test accuracy achieved is 57%.
 
 Few sample transformed(corrected) images by the Encoder(Spatial transformation block) is as below - 
