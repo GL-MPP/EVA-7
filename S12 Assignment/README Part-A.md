@@ -4,6 +4,7 @@
 
 - Modify existing [Spatial Transformer Code](https://brsoff.github.io/tutorials/intermediate/spatial_transformer_tutorial.html) for CIFAR10.
 - Train the model for 50 epochs
+- Describe what Spatial Transformer does
 
 
 ## Approach
@@ -15,7 +16,7 @@ Part -1 Modify the network (both the spatial transformation block and the CNN bl
 Part -2 Train the model for 50 epochs and generate a set of transformed images transformed by the the Spatial transformer.
 
 
-### Part -1
+### Part -1 (Along with a note on what Spatial Transformer does)
 A desirable property of a system which is able to reason about images is to disentangle object pose and part deformation from texture and shape. The introduction of local max-pooling layers in CNNs has helped to satisfy this property by allowing a network to be somewhat spatially invariant
 to the position of features. However, due to the typically small spatial support for max-pooling (e.g. 2 × 2 pixels) this spatial invariance is only realised over a deep hierarchy of max-pooling and convolutions, and the intermediate feature maps (convolutional layer activations) in a CNN are not
 actually invariant to large transformations of the input data. A Spatial Transformer module has been introduced, that can be included into a standard neural
