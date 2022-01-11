@@ -42,7 +42,7 @@ The ViT configurations are -
 
 ## Result
 
-Training logas as below - 
+Training logs as below - 
 
 <pre>
 100%
@@ -115,10 +115,10 @@ Shape of CLS Token = (-1, 1, 768)
 ### 3. Position embedding
 Position embeddings(Learnable parameters) of shape (-1, 14*14+1,768) = (-1,197,768) is created.
 
-### 4. Class ViTEmbeddings 
+### 4. ViTEmbeddings 
 This class constructs (concats) the CLS token + patch embeddings and position to arrive at the final embedding and of shape (-1,197,768).
 
-### 5. Class ViTConfig
+### 5. ViTConfig
 This class stores the basic configuration values
 
 {'attention_probs_dropout_prob': 0.0,
@@ -134,13 +134,14 @@ This class stores the basic configuration values
  'num_hidden_layers': 12,
  'patch_size': 16}
 
-### 6. Class ViTSelfAttention
+### 6. ViTSelfAttention
 This class basically takes in all the required configuration values and does the the following -
 1. Generate the Key, Query and Value vectors.
 2. Does necessary Matrix transpose operation to enable Matrix multiplication.
 3. Generate the context layer (Softmax(Query x Key) x Value) and Attention probabilities (Softmax(Query x Key)) as output
 
-### 7. class ViTSelfOutput
+### 7. ViTSelfOutput
 This is the Projection layer (Linear Layer) sitting on top of the Transformer mechanism.
-### 8. Class ViTEncoder
-This Classs is the inclusion of all the classes above to depict the overall architecture of Transformer (Encoder portion).
+
+### 8. ViTEncoder
+This Class is the inclusion of all the classes above to depict the overall architecture of Transformer (Encoder portion).
