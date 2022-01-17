@@ -9,6 +9,8 @@
 ## Solution
 The colab notebook can be found [here](https://drive.google.com/file/d/1WgLUYTqaWduVVesIXSS6vl9FiVKG7CI4/view?usp=sharing)
 
+or [here](https://colab.research.google.com/drive/1WgLUYTqaWduVVesIXSS6vl9FiVKG7CI4).
+
 
 
 
