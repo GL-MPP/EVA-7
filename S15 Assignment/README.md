@@ -17,17 +17,20 @@ A comparative study has been done to gauge the cost saving benefits of Spot inst
 The youtube video can be found [here - Will be uploaded in a while](https://colab.research.google.com/drive/1WgLUYTqaWduVVesIXSS6vl9FiVKG7CI4).
 
 
-## Training Log without Spot instances
-<pre>
-
-
-
-</pre>
-
 ## Training Log with Spot instances
 <pre>
 
+epoch: 5 - loss: 0.8833218216896057
+Saving the Checkpoint: /opt/ml/checkpoints/checkpoint.pth
+Finished Training
+Saving the model.
+2022-02-21 17:56:40,920 sagemaker-training-toolkit INFO     Reporting training SUCCESS
 
+2022-02-21 17:56:51 Uploading - Uploading generated training model
+2022-02-21 17:56:51 Completed - Training job completed
+Training seconds: 472
+Billable seconds: 183
+Managed Spot Training savings: 61.2%
 
 </pre>
 
