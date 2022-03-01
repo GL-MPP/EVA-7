@@ -14,7 +14,7 @@ more than 4+ GPUs
 ## Solution
 
 A comparative study has been done to gauge the cost saving benefits of Spot instances.
-The youtube video can be found [here - Will be uploaded in a while](https://colab.research.google.com/drive/1WgLUYTqaWduVVesIXSS6vl9FiVKG7CI4).
+The youtube video can be found [here](https://youtu.be/wMIs3WGE_N8).
 
 
 ## Training Log with Spot instances
