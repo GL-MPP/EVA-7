@@ -3,7 +3,7 @@
 Work for Panoptic Segmentation using DETR can be broken down as below -
 1. Finding dataset of images
 2. Annotating the images and producing binary mask
-3. Using the binary mask creating coco json file with categoroes = number of classes + stuff class (isthing = 0). In our case we had the following classes
+3. Using the binary mask for creating coco json file with categories = number of classes + stuff class (isthing = 0). In our case we had the following classes
 	-	rebar
 	-	crack
 	-	spall
@@ -12,7 +12,7 @@ Work for Panoptic Segmentation using DETR can be broken down as below -
 The colab notebook for BBOX training can be found [here](https://colab.research.google.com/drive/1bIaMU19oRXRZuNMsz-VQL12YrjaZACNC).
 
 ## For segmentation
-5. Create ground-truth png and json files.
+5. Create ground-truth png and json files for segmentation training. The json for segmentation is slightly different than json for BBOX. The pnj images stores pixel level class details. The panoptic API has been used to convert pixel colors via RGB2ID function and store the ID along with BBOX information in the JSON.
 The code to generate ground-truth and corresponding train/val json can be found [here](https://colab.research.google.com/drive/1J9EeYhxhTxprXhtAxUuyz5OhZ-i2T6P2)
 
 6. Freeze the BBOX trained DETR weights and use it to train the DETR for segmentation.
