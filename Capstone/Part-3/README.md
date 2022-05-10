@@ -21,13 +21,16 @@ The colab notebook for Segmentation training can be found [here](https://colab.r
 7. The BBOX and Segmentation log files can be found [here](/Capstone/Logs)
 
 ## Results
-### The final images are in the following order -
+### The model output images are in the following order -
 
 ### Original Image -> Ground Truth -> BBOX -> Panoptic Segmented
 
 ![](/Images/Capstone_3/capstone_final_images1.png)
+
 ![](/Images/Capstone_3/capstone_final_images2.png)
+
 ![](/Images/Capstone_3/capstone_final_images3.png)
+
 ![](/Images/Capstone_3/capstone_final_images4.png)
 ![](/Images/Capstone_3/capstone_final_images5.png)
 ![](/Images/Capstone_3/capstone_final_images6.png)
