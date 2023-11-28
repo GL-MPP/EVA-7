@@ -10,11 +10,11 @@ Work for Panoptic Segmentation using DETR can be broken down as below -
 	-	spall
 	- 	stuff/background
 4. Train the DETR model for BBOX. The BBOX must detect all classes + stuff class.
-The colab notebook for BBOX training can be found [here](https://colab.research.google.com/drive/1bIaMU19oRXRZuNMsz-VQL12YrjaZACNC).
+The colab notebook for BBOX training can be found [here](https://github.com/GL-MPP/EVA-7/tree/main/Capstone/Code).
 
 ## Part -2 For segmentation
 1. Create ground-truth png and json files for segmentation training. The json for segmentation is slightly different than json for BBOX. The pnj images (also known as ground truth) stores pixel level class details. The panoptic API has been used to convert pixel colors via RGB2ID function and store the ID along with BBOX information in the JSON.
-The code to generate ground-truth and corresponding train/val json can be found [here](https://colab.research.google.com/drive/1J9EeYhxhTxprXhtAxUuyz5OhZ-i2T6P2)
+The code to generate ground-truth and corresponding train/val json can be found [here](https://github.com/GL-MPP/EVA-7/tree/main/Capstone/Code)
 
 2. To summarize, the dataset consists of following -
 	1.	Original images
@@ -25,7 +25,7 @@ The code to generate ground-truth and corresponding train/val json can be found 
 Complete dataset for both BBOX detection and segmentation can be found [here](/Capstone/Part-3/Dataset) stored in 5 separate folders.
 
 3. Freeze the BBOX trained DETR weights and use it to train the DETR for segmentation.
-The colab notebook for Segmentation training can be found [here](https://colab.research.google.com/drive/1byQxIFpL10DVO6QrR_mDdni45BEzAjtC).
+The colab notebook for Segmentation training can be found [here](https://github.com/GL-MPP/EVA-7/tree/main/Capstone/Code).
 
 4. The BBOX and Segmentation log files can be found [here](/Capstone/Logs)
 
